@@ -1,0 +1,5 @@
+pandas
+numpy
+scikit-learn
+mlflow
+typing_extensions>=4.0.0
