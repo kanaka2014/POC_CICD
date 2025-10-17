@@ -43,7 +43,7 @@ jobs:
           echo "Testing is done"
       
       - name: Upload executed notebook
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: executed-notebook
           path: executed_test_cases.ipynb
