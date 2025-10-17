@@ -42,6 +42,10 @@ jobs:
         run: |
           pip install nbconvert ipykernel
       
+
       - name: Execute test_cases notebook
-        run: jupyter nbconvert --execute --inplace test/test_cases.ipynb
+        run: |
+          jupyter nbconvert --execute --inplace tests/test_cases.ipynb --ExecutePreprocessor.timeout=300
+          echo "Testing is done"
+
 
