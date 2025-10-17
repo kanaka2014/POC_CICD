@@ -30,4 +30,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
+        
+      
+      - name: Execute test_cases.ipynb
+        run: |
+          pip install nbconvert
+          jupyter nbconvert --to notebook --execute test_cases.ipynb --output executed_test_cases.ipynb
+
+
       
