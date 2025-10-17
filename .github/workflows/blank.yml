@@ -32,10 +32,8 @@ jobs:
           pip install pytest
         
       
-      - name: Execute test_cases.ipynb
+      - name: Execute test_cases
         run: |
           pip install nbconvert
-          jupyter nbconvert --to notebook --execute test_cases.ipynb --output executed_test_cases.ipynb
-
-
-      
+          jupyter nbconvert --to notebook --execute test_cases.ipynb 
+          echo "testing is done"
