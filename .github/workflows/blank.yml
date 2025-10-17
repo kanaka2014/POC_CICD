@@ -32,8 +32,19 @@ jobs:
           pip install pytest
         
       
-      - name: Execute test_cases
+
+      - name: Install dependencies
         run: |
-          pip install nbconvert
-          jupyter nbconvert --to notebook --execute test_cases.ipynb 
-          echo "testing is done"
+          pip install nbconvert ipykernel
+      
+      - name: Execute test_cases notebook
+        run: |
+          jupyter nbconvert --to notebook --execute test_cases.ipynb --output executed_test_cases.ipynb --ExecutePreprocessor.timeout=300
+          echo "Testing is done"
+      
+      - name: Upload executed notebook
+        uses: actions/upload-artifact@v3
+        with:
+          name: executed-notebook
+          path: executed_test_cases.ipynb
+
