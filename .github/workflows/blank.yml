@@ -47,5 +47,10 @@ jobs:
         run: |
           jupyter nbconvert --execute --inplace tests/test_cases.ipynb --ExecutePreprocessor.timeout=300
           echo "Testing is done"
+      - name: Execute model training notebook
+        run: |
+          jupyter nbconvert --execute --inplace model_dev.ipynb --ExecutePreprocessor.timeout=300
+          echo "Training is done"
+        
 
 
