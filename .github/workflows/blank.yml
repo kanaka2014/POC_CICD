@@ -55,6 +55,13 @@ jobs:
         run: |
           jupyter nbconvert --execute --inplace model_dev.ipynb --ExecutePreprocessor.timeout=300
           echo "Training is done"
+      
+
+      - name: List generated files
+        run: |
+          ls -lh Model_Artifacts/*.pkl || echo "No .pkl file found"
+
+
         
 
 
