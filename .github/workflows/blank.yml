@@ -63,7 +63,7 @@ jobs:
       
 
       - name: Upload .pkl file as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lr-model-pkl
           path: Model_Artifacts/lr_model_new.pkl
