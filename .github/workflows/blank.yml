@@ -60,6 +60,15 @@ jobs:
       - name: List generated files
         run: |
           ls -lh Model_Artifacts/*.pkl || echo "No .pkl file found"
+      
+
+      - name: Upload .pkl file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: lr-model-pkl
+          path: Model_Artifacts/lr_model_new.pkl
+
+
 
 
         
