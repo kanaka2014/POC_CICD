@@ -10,10 +10,6 @@ on:
     branches:
       - main
 
-
-permissions:
-  contents: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -68,6 +64,26 @@ jobs:
         with:
           name: lr-model-pkl-${{ github.run_id }}
           path: Model_Artifacts/lr_model_new.pkl
+
+          
+      - name: Load model and predict
+        run: |
+          python - <<EOF
+          import pickle
+          import numpy as np
+
+          # Load the model
+          with open('Model_Artifacts/lr_model_new.pkl', 'rb') as f:
+            model = pickle.load(f)
+
+          # Example input
+          X_new = np.array([[7.4 2.8 6.1 1.9]])
+
+          # Predict
+          prediction = model.predict(X_new)
+          print("Predicted output:", prediction)
+          EOF
+
 
 
 
